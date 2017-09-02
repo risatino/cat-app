@@ -1,0 +1,17 @@
+<div id="app">
+  <app-username></app-username>
+  <p v-bind:class="{updated: name == 'D-robot' ? false : true}">Hi, my name is {{ name }}!</p>
+  <p v-if="name == 'D-robot' ? false : true">This is my one true database name.</p>
+  <button v-on:click="changeName">Change Name</button>
+  <button v-on:click="addElement">New Element</button>
+  <ul>
+  <li v-for="el in elements" 
+      v-bind:id="'elem' + el"
+      v-bind:style="{backgroundColor: getColor(el)}">{{ el }} Big Mac Found!
+      </li>
+  </ul>
+</div>
+<div id="app2">
+  <p>Second Vue Instance</p>
+  <p>{{ message }}</p>
+</div>
