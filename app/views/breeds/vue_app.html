@@ -1,7 +1,11 @@
 <script src="https://unpkg.com/vue"></script>
 
 <div id="app">
-  <app-username></app-username>
+  <app-username 
+    v-bind:username="'D-robot'"
+    v-on:usrclicked="userWasClicked($event)"
+  ></app-username>
+  <app-username v-bind:username="'Pizza-Robot'"></app-username>
   <p v-bind:class="{updated: name == 'D-robot' ? false : true}">Hi, my name is {{ name }}!</p>
   <p v-if="name == 'D-robot' ? false : true">This is my one true database name.</p>
   <button v-on:click="changeName">Change Name</button>
@@ -17,3 +21,4 @@
   <p>Second Vue Instance</p>
   <p>{{ message }}</p>
 </div>
+

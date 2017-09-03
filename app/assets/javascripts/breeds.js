@@ -1,12 +1,16 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
 Vue.component('app-username', {
+  props: ['username'],
   data: function() {
     return {
-      username: 'D-Robot'
+      // username: 'D-Robot'
     }
   },
-  template: '<p>{{ username }}</p>'
+  template: '<p v-on:click="usernameClicked">{{ username }}</p>',
+  methods: {
+    usernameClicked() {
+    this.$emit('usrclicked', this.username);
+    }
+  }
 });
 
 new Vue({
@@ -24,6 +28,9 @@ new Vue({
     },
     getColor: function(number) {
       return number % 2 == 0 ? 'green' : 'blue';
+    },
+    userWasClicked(name){
+      alert(name);
     }
   }
 });
